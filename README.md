@@ -206,4 +206,4 @@ See `requirements.txt` for the installable Python package list. SQLite support c
 
 ## Demo Video
 
-TBD
+[Demo Video](https://drive.google.com/file/d/12N-6WGhYzJGnq7YqYggkBM4-CiCeUEhW/view?usp=share_link)
