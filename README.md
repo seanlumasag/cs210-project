@@ -24,7 +24,7 @@ The project combines two survey datasets with different schemas, cleans and alig
 | `output_figures/` | Generated visualizations used in the analysis and report. |
 | `report.pdf` | Final written project report. |
 | `proposal.pdf` | Original project proposal. |
-| `requirements.txt` | Python dependencies required to run the notebook. |
+| `requirements.txt` | Python packages needed to run the notebook. |
 
 ## Data
 
@@ -112,23 +112,82 @@ The notebook generates the following visualizations in `output_figures/`:
 
 ## How to Run
 
-Install the required dependencies:
+These instructions are for running the project on a Mac.
+
+### 1. Install Python
+
+If Python is not already installed, download and install the latest Python 3 version from:
+
+https://www.python.org/downloads/
+
+After installing Python, open the Terminal app and check that Python works:
 
 ```bash
-pip install -r requirements.txt
+python3 --version
 ```
 
-Open `notebook.ipynb` and run all cells from top to bottom.
+You should see a Python version number.
 
-The notebook expects the following files to be present in the repository root:
+### 2. Open the Project Folder in Terminal
 
+In Terminal, move into the folder where this project is saved. For example, if the project is in your Downloads folder:
+
+```bash
+cd ~/Downloads/cs210-project
+```
+
+If your folder is somewhere else, replace the path after `cd` with the location of your project folder.
+
+### 3. Install the Required Python Packages
+
+Run this command from inside the project folder:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+This installs the packages needed for loading the data, creating the charts, running the machine learning models, and opening the notebook.
+
+### 4. Start Jupyter Lab
+
+Run:
+
+```bash
+python3 -m jupyter lab
+```
+
+This should open Jupyter Lab in your web browser. If it does not open automatically, Terminal should show a local link that starts with `http://localhost:`. Copy and paste that link into your browser.
+
+### 5. Run the Notebook
+
+In Jupyter Lab, open `notebook.ipynb`.
+
+Run the notebook from top to bottom by selecting:
+
+```text
+Run > Run All Cells
+```
+
+The notebook expects these files to be in the same project folder:
+
+- `notebook.ipynb`
 - `2014.csv`
 - `2016.csv`
 
-Running the notebook will create or update:
+Running all cells will create or update:
 
 - `mental_health.db`
 - generated figures in `output_figures/`
+
+Existing versions of those files may be overwritten when the notebook runs.
+
+### Troubleshooting
+
+If `python3` is not found, Python may not be installed correctly. Reinstall Python 3 from python.org, then close and reopen Terminal.
+
+If you see an error like `No module named pandas` or `No module named sklearn`, run `python3 -m pip install -r requirements.txt` from Step 3 again.
+
+If Jupyter opens in the wrong folder, stop it by pressing `Control + C` in Terminal, use `cd` to move into the project folder, then run `python3 -m jupyter lab` again.
 
 ## Requirements
 
@@ -143,7 +202,7 @@ The project uses:
 - scikit-learn
 - SQLite
 
-See `requirements.txt` for the installable Python package list.
+See `requirements.txt` for the installable Python package list. SQLite support comes with Python, so it does not need to be installed separately.
 
 ## Demo Video
 
