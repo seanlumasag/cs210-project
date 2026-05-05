@@ -180,7 +180,6 @@ The notebook generates the following visualizations in `output_figures/`:
 | Treatment-seeking rate by country | `vis1_treatment_by_country.png` |
 | Year-over-year treatment, employer support, and stigma comparison | `vis2_year_over_year.png` |
 | Treatment rate by employer support score bin | `vis3_employer_support_bins.png` |
-| Employer support scatter plot | `vis3_employer_support_scatter.png` |
 | Workplace stigma score vs treatment avoidance | `vis4_stigma_vs_treatment.png` |
 | Willingness to discuss mental health by relationship type | `vis5_discuss_by_relationship.png` |
 | Top Random Forest feature importances | `vis6_feature_importance.png` |
