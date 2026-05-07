@@ -208,7 +208,7 @@ Model performance for predicting treatment-seeking:
 
 | Model | Accuracy | F1 | ROC-AUC |
 | --- | ---: | ---: | ---: |
-| Logistic Regression | 0.738 | 0.761 | 0.795 |
+| Logistic Regression | 0.737 | 0.759 | 0.795 |
 | Random Forest | 0.759 | 0.782 | 0.827 |
 
 The Random Forest model performed best overall. Workplace-related features were slightly stronger predictors of treatment-seeking than personal features:
