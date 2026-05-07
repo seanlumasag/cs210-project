@@ -63,6 +63,13 @@ This installs the packages needed for loading the data, creating the charts, run
 
 Open the cloned `cs210-project` folder in VS Code, then open `notebook.ipynb`.
 
+Before running the notebook, make sure these VS Code extensions are installed:
+
+- Python
+- Jupyter
+
+VS Code usually prompts you to install these extensions when you open `notebook.ipynb`. If it does not, open the Extensions panel in VS Code and install them manually.
+
 If VS Code asks you to select a kernel or interpreter, choose the Python 3 environment where you installed the required packages.
 
 Run the notebook from top to bottom by selecting:
