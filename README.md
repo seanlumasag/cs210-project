@@ -19,17 +19,23 @@ These instructions are for running the project on a Mac.
 
 ### 1. Install Python
 
-If Python is not already installed, download and install the latest Python 3 version from:
+For reproducible notebook metrics, use **Python 3.14.3**. Other Python versions, including Python 3.14.2, may produce slightly different machine learning metrics even when the notebook code is unchanged.
+
+If Python 3.14.3 is not already installed, download and install it from:
 
 https://www.python.org/downloads/
 
-After installing Python, open the Terminal app and check that Python works:
+After installing Python, open the Terminal app and check that the correct Python version is available:
 
 ```bash
-python3 --version
+python3.14 --version
 ```
 
-You should see a Python version number.
+You should see:
+
+```text
+Python 3.14.3
+```
 
 ### 2. Clone the Repository
 
@@ -49,15 +55,18 @@ cd cs210-project
 
 If you cloned the repository somewhere else, replace the path after `cd` with the location of your project folder.
 
-### 4. Install the Required Python Packages
+### 4. Create the Project Environment and Install Packages
 
-Run this command from inside the project folder:
+Run these commands from inside the project folder:
 
 ```bash
-python3 -m pip install -r requirements.txt
+python3.14 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m ipykernel install --user --name cs210-python-3.14.3 --display-name "CS210 Python 3.14.3"
 ```
 
-This installs the packages needed for loading the data, creating the charts, running the machine learning models, and opening the notebook.
+This creates a local virtual environment, installs the pinned packages needed for the project, and registers a Jupyter kernel named `CS210 Python 3.14.3`.
 
 ### 5. Run the Notebook in VS Code
 
@@ -70,7 +79,33 @@ Before running the notebook, make sure these VS Code extensions are installed:
 
 VS Code usually prompts you to install these extensions when you open `notebook.ipynb`. If it does not, open the Extensions panel in VS Code and install them manually.
 
-If VS Code asks you to select a kernel or interpreter, choose the Python 3 environment where you installed the required packages.
+If VS Code asks you to select a kernel or interpreter, choose:
+
+```text
+CS210 Python 3.14.3
+```
+
+To verify that the notebook is using the correct environment, run this in a notebook cell:
+
+```python
+import sys
+import pandas as pd
+import numpy as np
+import sklearn
+
+print(sys.version)
+print("pandas", pd.__version__)
+print("numpy", np.__version__)
+print("sklearn", sklearn.__version__)
+```
+
+Expected package versions:
+
+```text
+pandas 3.0.1
+numpy 2.4.3
+sklearn 1.8.0
+```
 
 Run the notebook from top to bottom by selecting:
 
@@ -95,7 +130,16 @@ Existing versions of those files may be overwritten when the notebook runs.
 
 If `python3` is not found, Python may not be installed correctly. Reinstall Python 3 from python.org, then close and reopen Terminal.
 
-If you see an error like `No module named pandas` or `No module named sklearn`, run `python3 -m pip install -r requirements.txt` from Step 4 again.
+If `python3.14 --version` does not show Python 3.14.3, install Python 3.14.3 and reopen Terminal before continuing.
+
+If you see an error like `No module named pandas` or `No module named sklearn`, activate the project environment and reinstall the requirements:
+
+```bash
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+If model metrics differ between computers, confirm both computers are using Python 3.14.3, the `CS210 Python 3.14.3` notebook kernel, and the pinned package versions from `requirements.txt`. Then restart the kernel and run all cells from top to bottom.
 
 ## Repository Contents
 
@@ -197,7 +241,7 @@ The notebook generates the following visualizations in `output_figures/`:
 
 The project uses:
 
-- Python
+- Python 3.14.3
 - VS Code with notebook support
 - NumPy
 - Pandas
