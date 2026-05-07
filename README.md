@@ -31,17 +31,25 @@ python3 --version
 
 You should see a Python version number.
 
-### 2. Open the Project Folder in Terminal
+### 2. Clone the Repository
 
-In Terminal, move into the folder where this project is saved. For example, if the project is in your Downloads folder:
+In Terminal, move into the folder where you want to save the project, then clone the repository:
 
 ```bash
-cd ~/Downloads/cs210-project
+git clone https://github.com/seanlumasag/cs210-project.git
 ```
 
-If your folder is somewhere else, replace the path after `cd` with the location of your project folder.
+### 3. Open the Project Folder in Terminal
 
-### 3. Install the Required Python Packages
+Move into the cloned project folder:
+
+```bash
+cd cs210-project
+```
+
+If you cloned the repository somewhere else, replace the path after `cd` with the location of your project folder.
+
+### 4. Install the Required Python Packages
 
 Run this command from inside the project folder:
 
@@ -51,24 +59,16 @@ python3 -m pip install -r requirements.txt
 
 This installs the packages needed for loading the data, creating the charts, running the machine learning models, and opening the notebook.
 
-### 4. Start Jupyter Lab
+### 5. Run the Notebook in VS Code
 
-Run:
+Open the cloned `cs210-project` folder in VS Code, then open `notebook.ipynb`.
 
-```bash
-python3 -m jupyter lab
-```
-
-This should open Jupyter Lab in your web browser. If it does not open automatically, Terminal should show a local link that starts with `http://localhost:`. Copy and paste that link into your browser.
-
-### 5. Run the Notebook
-
-In Jupyter Lab, open `notebook.ipynb`.
+If VS Code asks you to select a kernel or interpreter, choose the Python 3 environment where you installed the required packages.
 
 Run the notebook from top to bottom by selecting:
 
 ```text
-Run > Run All Cells
+Run All
 ```
 
 The notebook expects these files to be in the same project folder:
@@ -88,9 +88,7 @@ Existing versions of those files may be overwritten when the notebook runs.
 
 If `python3` is not found, Python may not be installed correctly. Reinstall Python 3 from python.org, then close and reopen Terminal.
 
-If you see an error like `No module named pandas` or `No module named sklearn`, run `python3 -m pip install -r requirements.txt` from Step 3 again.
-
-If Jupyter opens in the wrong folder, stop it by pressing `Control + C` in Terminal, use `cd` to move into the project folder, then run `python3 -m jupyter lab` again.
+If you see an error like `No module named pandas` or `No module named sklearn`, run `python3 -m pip install -r requirements.txt` from Step 4 again.
 
 ## Repository Contents
 
@@ -193,7 +191,7 @@ The notebook generates the following visualizations in `output_figures/`:
 The project uses:
 
 - Python
-- Jupyter Lab
+- VS Code with notebook support
 - NumPy
 - Pandas
 - Matplotlib
